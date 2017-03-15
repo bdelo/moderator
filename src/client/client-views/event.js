@@ -26,7 +26,6 @@ export default connect(
     }
     render() {
       const e = this.props.state.event_lookup[this.props.lookup_id];
-
       const o = this.props.state.org;
       if (!e || !e.event){
         return <div className="loader event-loader" />
@@ -54,6 +53,7 @@ export default connect(
           <QuestionList
             questions={e.questions}
             vote={this.question_vote.bind(this)}
+            allow_downvotes={e.event.allow_downvotes}
           />
         </div>
       </div>
